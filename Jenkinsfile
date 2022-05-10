@@ -1,9 +1,12 @@
 pipeline {
          agent any
+         tools {
+            terraform 'terraform'
+         }
          stages {
-                 stage('test') {
+                 stage('terraform-version') {
                   steps {
-                     sh "echo staring testing the app"
+                     sh "terraform -v"
                   }
                  }
                  stage('build') {
